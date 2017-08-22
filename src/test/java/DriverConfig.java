@@ -1,5 +1,4 @@
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -22,7 +21,7 @@ public class DriverConfig {
         capabilities.setCapability(MobileCapabilityType.FULL_RESET,"false");
         capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE,"com.box.android");
         capabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY,"com.box.android.activities.login.SplashScreenActivity");
-        driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),capabilities);
+        driver = new AppiumDriver(new URL("http://127.0.0.1:4723/wd/hub"),capabilities);
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
     }
 
