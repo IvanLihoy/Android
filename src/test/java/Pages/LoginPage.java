@@ -3,6 +3,7 @@ package Pages;
 
 import Utils.Tools;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,7 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage extends Tools{
 
-    public LoginPage(AppiumDriver driver){
+    public LoginPage(AndroidDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
