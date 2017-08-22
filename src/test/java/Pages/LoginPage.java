@@ -32,8 +32,8 @@ public class LoginPage extends Tools{
     public void doLogin(){
         loginButton.click();
         waitForElementDisplayed(emailField);
-        emailField.sendKeys("testusermail2017@gmail.com");
-        passField.sendKeys("Password11");
+        emailField.sendKeys("username");
+        passField.sendKeys("password");
         waitForElementClickable(loginFinalbutton);
         loginFinalbutton.click();
         boolean accessWindowNotRequired = driver.findElements(By.xpath(allowAccess)).isEmpty();
