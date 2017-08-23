@@ -39,6 +39,7 @@ public class LoginPage extends Tools{
         loginFinalbutton.click();
         boolean accessWindowNotRequired = driver.findElements(By.xpath(allowAccess)).isEmpty();
         if(!accessWindowNotRequired) allowAccessButton.click();
+        waitForElementDisplayed(allFiles);
     }
 
 
