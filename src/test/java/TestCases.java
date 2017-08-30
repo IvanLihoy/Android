@@ -11,11 +11,22 @@ public class TestCases extends DriverConfig {
     @BeforeTest(dependsOnMethods = "runApp")
     protected void initPages(){
         loginPage = new LoginPage(driver);
+        filesPage = new FilesPage(driver);
     }
 
-    @Test
+    @Test(groups = "login")
     protected void successLoginTest(){
         loginPage.doLogin();
+    }
+
+    @Test(groups = "upload", dependsOnGroups = "login")
+    protected void uploadFileTest(){
+        filesPage.uploadFile();
+    }
+
+    @Test(dependsOnGroups = {"login","upload"})
+    protected void deleteFileTest(){
+        filesPage.deleteFile();
     }
 
 

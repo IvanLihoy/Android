@@ -19,9 +19,11 @@ public class DriverConfig {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,"Samsung Galaxy S7");
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME,"Android");
-        capabilities.setCapability(MobileCapabilityType.FULL_RESET,"false");
-        capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE,"com.box.android");
-        capabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY,"com.box.android.activities.login.SplashScreenActivity");
+        capabilities.setCapability(MobileCapabilityType.FULL_RESET,"true");
+        capabilities.setCapability(MobileCapabilityType.APP,"D:\\apk_s\\DB.apk");
+        capabilities.setCapability(MobileCapabilityType.CLEAR_SYSTEM_FILES,"true"); // чистка системных файлов требуется после удаления приложения параметром FULL_REST
+        capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE,"com.dropbox.android");
+        capabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY,"com.dropbox.android.activity.DbxMainActivity");
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),capabilities);
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
     }

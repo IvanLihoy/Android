@@ -1,4 +1,9 @@
 # Created by .ignore support plugin (hsz.mobi)
-.idea/
-target/
+#/src/test/resources/onlyOne
+# Intellij
+*.idea/
+*.iml
+*.iws
+# Maven
+/target
 

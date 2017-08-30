@@ -16,30 +16,31 @@ public class LoginPage extends Tools{
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath = "//android.widget.Button[@text='LOG IN']")
-    private WebElement loginButton;
-    @FindBy(xpath = "//android.widget.EditText[@text='Email Address']")
+    @FindBy(xpath = "//android.widget.TextView[@text='Sign in']")
+    private WebElement signInButton;
+    @FindBy(xpath = "//android.widget.EditText[@text='Email']")
     private WebElement emailField;
-    @FindBy(id = "password")
+    @FindBy(xpath = "//android.widget.EditText[@text='Password']")
     private WebElement passField;
-    @FindBy(xpath = "//android.widget.Button[@content-desc='Log In Log In']")
-    private WebElement loginFinalbutton;
-    @FindBy(xpath = "//android.widget.TextView[@text='All Files']")
-    private WebElement allFiles;
-    @FindBy(xpath = "//android.widget.Button[@text='ALLOW']")
-    private WebElement allowAccessButton;
-    private String allowAccess = "//android.widget.Button[@text='ALLOW']";
+    @FindBy(xpath = "//android.widget.Button[@text='SIGN IN']")
+    private WebElement signInFinalbutton;
+    @FindBy(xpath = "//android.widget.Button[@text='NOT NOW']")
+    private WebElement notNowButton;
+    @FindBy(xpath = "//android.widget.TextView[@text='Recents']")
+    private WebElement recentsLabel;
+
+    private String popup = "//android.widget.Button[@text='YES, CONTINUE']";
 
     public void doLogin(){
-        loginButton.click();
+        signInButton.click();
         waitForElementDisplayed(emailField);
         emailField.sendKeys("testusermail2017@gmail.com");
         passField.sendKeys("Password11");
-        waitForElementClickable(loginFinalbutton);
-        loginFinalbutton.click();
-        boolean accessWindowNotRequired = driver.findElements(By.xpath(allowAccess)).isEmpty();
-        if(!accessWindowNotRequired) allowAccessButton.click();
-        waitForElementDisplayed(allFiles);
+        waitForElementClickable(signInFinalbutton);
+        signInFinalbutton.click();
+        boolean computerPopupIsNotPresent = driver.findElements(By.xpath(popup)).isEmpty();
+        if(!computerPopupIsNotPresent) notNowButton.click();
+        waitForElementDisplayed(recentsLabel);
     }
 
 
